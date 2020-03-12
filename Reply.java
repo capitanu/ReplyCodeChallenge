@@ -1,28 +1,37 @@
 import java.util.ArrayList;
-
+import java.util.Arrays;
 class Reply {
     public static void main(String[] args){
 	PM[] pms = Test.pm();
 	Developer[] devs = Test.devs();
 	char[][] map = Test.map();
-	/*ArrayList<Company_PM> cmp = new ArrayList<Company_PM>();
-	for(int i = 0; i < pms.length; i++){
-	    int ok = 1;
-	    for(Company_PM cpm : cmp)
-		if(cpm.name.equals(pms[i].company)){
-		    cpm.pms.add(pms[i]);
-		    ok = 0;
-		    break;
-		}
-	    if(ok == 1){
-		ArrayList<PM> newpm = new ArrayList<PM>();
-		newpm.add(pms[i]);
-		Company_PM newcmp = new Company_PM(newpm, pms[i].company);
-		    cmp.add(newcmp);
+	OrderPM[] prio = new OrderPM[(pms.length-1)*pms.length/2];
+	int index = 0;
+	for(int i = 0; i < pms.length; i++)
+	    for(int j = i+1; j < pms.length; j++){
+		OrderPM newel = new OrderPM(i,j);
+		    newel.TP = 0;
+		if(pms[i].company.equals(pms[j].company))
+		    newel.TP = pms[i].bonus*pms[j].bonus;
+		prio[index] = newel;
+		index++;
 	    }
-	}
-	for(Company_PM cpm: cmp)
-	System.out.println(cpm);*/
+	Arrays.sort(prio);
+	for(int i = 0; i < prio.length; i++)
+	    System.out.println(prio[i].toString());
+	int indexf = 0;
+	int indexl = prio.length-1;
+	int[][] plcpm = new int[map.length][map[0].length];
+	for(int i = 0; i < plcpm.length; i++)
+	    for(int j = 0; j < plcpm[0].length; j++)
+		plcpm[i][j] = -1;
+	for(int i = 0; i < map.length; i++)
+	    for(int j = 0, j<map[i].length; j++){
+		if (map[i][j] == 'M')
+		
+			  
+			  
+	    }
 	
     }
     

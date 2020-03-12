@@ -55,7 +55,7 @@ class Test {
 	skills = new String[3];
 	skills[0] = "bpm";
 	skills[1] = "python";
-	skills[3] = "project_management";
+	skills[2] = "project_management";
 	devs[7] = new Developer("opn",2,skills);
 	skills = new String[4];
 	skills[0] = "java";
